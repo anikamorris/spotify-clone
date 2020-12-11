@@ -18,12 +18,15 @@ class HomeController: UIViewController {
     //MARK: Views
     let artistTableView: UITableView = {
         let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(ArtistCell.self, forCellReuseIdentifier: ArtistCell.reuseIdentifier)
         return tableView
     }()
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchTopArtists()
         setupViews()
     }
     
@@ -33,9 +36,16 @@ class HomeController: UIViewController {
     
     //MARK: Methods
     func setupViews() {
+        view.backgroundColor = .background
         artistTableView.dataSource = self
         artistTableView.delegate = self
-        view.backgroundColor = .background
+        view.addSubview(artistTableView)
+        NSLayoutConstraint.activate([
+            artistTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            artistTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            artistTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            artistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
     }
     
     func fetchTopArtists(){
@@ -61,6 +71,8 @@ extension HomeController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArtistCell.reuseIdentifier) as! ArtistCell
+        cell.nameLabel.text = artists[indexPath.row].name
+        return cell
     }
 }

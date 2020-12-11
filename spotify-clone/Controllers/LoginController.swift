@@ -18,6 +18,11 @@ class LoginController: UIViewController, ASWebAuthenticationPresentationContextP
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = 5.0
+        view.layer.shadowColor = CGColor(gray: 0.0, alpha: 1.0)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: 4, height: 4)
         view.backgroundColor = .skyBlue
         return view
     }()

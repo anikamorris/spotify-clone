@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  FavoritesController.swift
 //  spotify-clone
 //
 //  Created by Anika Morris on 12/10/20.
@@ -8,15 +8,21 @@
 import Foundation
 import UIKit
 
-class TabBarController: UITabBarController {
+class FavoritesController: UIViewController {
     
     //MARK: Properties
     var coordinator: TabBarCoordinator!
     
-    //MARK: App Life Cycle
+    //MARK: Views
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = .ultraRed
+        setupViews()
+    }
+    
+    //MARK: Methods
+    func setupViews() {
+        view.backgroundColor = .background
     }
 }
-
