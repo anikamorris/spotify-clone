@@ -10,9 +10,17 @@ import UIKit
 
 class ArtistCell: UITableViewCell {
 
+    //MARK: Properties
     static let reuseIdentifier = "ArtistCell"
-    let nameLabel = UILabel()
     
+    //MARK: Views
+    let nameLabel: UILabel = {
+        let label =  UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLabel()
@@ -22,8 +30,8 @@ class ArtistCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Methods
     func setupLabel() {
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor),

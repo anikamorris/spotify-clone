@@ -16,8 +16,6 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     var childCoordinators: [Coordinator] = []
     var homeNavigationController: UINavigationController!
     var favoritesNavigationController: UINavigationController!
-//    var historyNavigationController: UINavigationController!
-//    var profileNavigationController: UINavigationController!
     
     //MARK: Init
     init(navigationController: UINavigationController) {

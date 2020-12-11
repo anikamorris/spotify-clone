@@ -20,6 +20,7 @@
 		CF7527C525831B1C0048665E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527C425831B1C0048665E /* HomeController.swift */; };
 		CF7527C8258330760048665E /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527C7258330760048665E /* ArtistCell.swift */; };
 		CF7527CB2583383D0048665E /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527CA2583383D0048665E /* FavoritesController.swift */; };
+		CF7527CE25833AF10048665E /* ArtistDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527CD25833AF10048665E /* ArtistDetailController.swift */; };
 		CFC9504F2564907700558149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9504E2564907700558149 /* AppDelegate.swift */; };
 		CFC950512564907700558149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950502564907700558149 /* SceneDelegate.swift */; };
 		CFC950582564907C00558149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC950572564907C00558149 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		CF7527C425831B1C0048665E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CF7527C7258330760048665E /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		CF7527CA2583383D0048665E /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		CF7527CD25833AF10048665E /* ArtistDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailController.swift; sourceTree = "<group>"; };
 		CFC9504B2564907600558149 /* spotify-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC9504E2564907700558149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFC950502564907700558149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				CF7527C125831AD40048665E /* TabBarController.swift */,
 				CF7527C425831B1C0048665E /* HomeController.swift */,
 				CF7527CA2583383D0048665E /* FavoritesController.swift */,
+				CF7527CD25833AF10048665E /* ArtistDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				CF7527C525831B1C0048665E /* HomeController.swift in Sources */,
 				CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */,
 				CF7527BF25831A2D0048665E /* TabBarCoordinator.swift in Sources */,
+				CF7527CE25833AF10048665E /* ArtistDetailController.swift in Sources */,
 				CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */,
 				CF7527B9258317F80048665E /* Coordinator.swift in Sources */,
 				CFC950642564927100558149 /* Keys.swift in Sources */,
