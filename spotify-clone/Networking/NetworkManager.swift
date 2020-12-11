@@ -109,9 +109,17 @@ class NetworkManager {
             completion(.success(user))
         }, failure: { (error) in
             if error.errorType == .unauthorized {
-                print("Refresh token!")
+                print("refresh token")
                 return
             }
+            completion(.failure(error))
+        })
+    }
+    
+    static func fetchTopArtists(completion: @escaping (Result<[Artist], Error>) -> Void) {
+        _ = Spartan.getMyTopArtists(limit: 50, offset: 0, timeRange: .mediumTerm, success: { (pagingObject) in
+            completion(.success(pagingObject.items))
+        }, failure: { (error) in
             completion(.failure(error))
         })
     }
