@@ -16,6 +16,7 @@ class TrackDetailController: UIViewController {
     var coordinator: TabBarCoordinator!
     var track: Track!
     var trackImage: UIImage?
+    var player: AVPlayer?
     
     //MARK: Views
     let trackImageView: UIImageView = {
@@ -49,6 +50,7 @@ class TrackDetailController: UIViewController {
     let playButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         button.setBackgroundImage(UIImage(systemName: "play"), for: .normal)
         button.tintColor = .royalIndigo
         return button
@@ -69,6 +71,7 @@ class TrackDetailController: UIViewController {
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchSongPreview()
         setupViews()
     }
     
@@ -132,7 +135,14 @@ class TrackDetailController: UIViewController {
         }
     }
     
-    func downloadImage(from urlString: String?){
+    func fetchSongPreview() {
+        let urlString = track.previewUrl
+        guard let url = URL(string: urlString!) else { return }
+        let playerItem = AVPlayerItem(url: url)
+        player = AVPlayer(playerItem: playerItem)
+    }
+    
+    func downloadImage(from urlString: String?) {
         guard let urlString = urlString else { return }
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
@@ -146,5 +156,12 @@ class TrackDetailController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    //MARK: Helpers
+    @objc func playButtonTapped() {
+        DispatchQueue.main.async { [weak self] in
+            self?.player?.play()
+        }
     }
 }

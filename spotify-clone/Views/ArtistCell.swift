@@ -56,7 +56,7 @@ class ArtistCell: UITableViewCell {
         ])
     }
     
-    func downloadImage(from urlString: String?){
+    func downloadImage(from urlString: String?) {
         guard let urlString = urlString else { return }
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
