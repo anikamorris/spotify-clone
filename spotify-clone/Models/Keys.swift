@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    static let redirectUri = URL(string:"spotify-clone://")!
+    static let redirectUri = "spotify-clone://"
     static let clientId = "ef0646a94ef649f1a2b5cb7978f2dbc4"
     static let clientSecret = "fef7b4c839f74db3a54c0777cc270963"
     
