@@ -133,7 +133,8 @@ class LoginController: UIViewController, ASWebAuthenticationPresentationContextP
                             self?.presentAlert(title: "Error Logging In", message: "\(error.localizedDescription)")
                         case .success(let user):
                             print(user)
-                            self?.coordinator.goToHomeController()
+                            let name = user.name
+                            self?.coordinator.goToHomeController(userName: name)
                         }
                     }
                 }

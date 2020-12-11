@@ -27,9 +27,10 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToHomeController() {
+    func goToHomeController(userName: String) {
         let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
         tabBarCoordinator.start()
+        tabBarCoordinator.setUserName(name: userName)
     }
     
     private func configureNavBar() {

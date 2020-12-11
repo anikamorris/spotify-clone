@@ -14,6 +14,7 @@ class HomeController: UIViewController {
     //MARK: Properties
     var coordinator: TabBarCoordinator!
     var artists: [Artist] = []
+    var userName: String = ""
     
     //MARK: Views
     let artistTableView: UITableView = {
@@ -32,6 +33,8 @@ class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.title = "\(userName)'s Top 50"
+        coordinator.setTabBarItemTitle()
     }
     
     //MARK: Methods
@@ -43,7 +46,7 @@ class HomeController: UIViewController {
         NSLayoutConstraint.activate([
             artistTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             artistTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            artistTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            artistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             artistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
     }
@@ -66,6 +69,11 @@ class HomeController: UIViewController {
 extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let artist = artists[indexPath.row]
+        coordinator.goToArtistDetail(artist: artist)
     }
 }
 

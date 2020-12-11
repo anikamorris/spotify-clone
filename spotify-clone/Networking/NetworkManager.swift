@@ -123,5 +123,13 @@ class NetworkManager {
             completion(.failure(error))
         })
     }
+    
+    static func fetchArtistTopTracks(artistId : String, completion: @escaping (Result<[Track], Error>) -> Void ){
+         _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
+            completion(.success(tracks))
+        }, failure: { (error) in
+            completion(.failure(error))
+        })
+    }
 }
 

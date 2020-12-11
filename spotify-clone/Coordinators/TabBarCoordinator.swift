@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Spartan
 
 class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
     
@@ -39,8 +40,8 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
         favoritesController.coordinator = self
         favoritesNavigationController = UINavigationController(rootViewController: favoritesController)
         favoritesNavigationController.tabBarItem = UITabBarItem(title: "Favorites",
-                                                           image: UIImage(systemName: "star"),
-                                                           selectedImage: UIImage(systemName: "star.fill")
+                                                           image: UIImage(systemName: "heart"),
+                                                           selectedImage: UIImage(systemName: "heart.fill")
                                                         )
         
         tabBarController.viewControllers = [
@@ -55,5 +56,27 @@ class TabBarCoordinator: NSObject, Coordinator, UITabBarControllerDelegate {
 
 //MARK: Home Flow
 extension TabBarCoordinator {
+    func setUserName(name: String) {
+        let homeController = homeNavigationController.viewControllers[0] as! HomeController
+        homeController.userName = name
+    }
     
+    func setTabBarItemTitle() {
+        homeNavigationController.tabBarItem.title = "Home"
+    }
+    
+    func goToArtistDetail(artist: Artist) {
+        let vc = ArtistDetailController()
+        vc.coordinator = self
+        vc.artist = artist
+        homeNavigationController.pushViewController(vc, animated: true)
+    }
+    
+    func goToTrackDetail(track: Track, trackImage: UIImage?) {
+        let vc = TrackDetailController()
+        vc.coordinator = self
+        vc.track = track
+        vc.trackImage = trackImage
+        homeNavigationController.pushViewController(vc, animated: true)
+    }
 }
