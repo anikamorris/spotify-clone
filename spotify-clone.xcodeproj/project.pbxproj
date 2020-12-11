@@ -11,9 +11,10 @@
 		CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF75279F2582F15E0048665E /* NetworkManager.swift */; };
 		CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A22582F20F0048665E /* SpotifyAuth.swift */; };
 		CF7527A62582F26A0048665E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A52582F26A0048665E /* User.swift */; };
+		CF7527AA2582FD450048665E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A92582FD450048665E /* LoginController.swift */; };
+		CF7527AF2582FF3A0048665E /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */; };
 		CFC9504F2564907700558149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9504E2564907700558149 /* AppDelegate.swift */; };
 		CFC950512564907700558149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950502564907700558149 /* SceneDelegate.swift */; };
-		CFC950532564907700558149 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950522564907700558149 /* ViewController.swift */; };
 		CFC950582564907C00558149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC950572564907C00558149 /* Assets.xcassets */; };
 		CFC9505B2564907C00558149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFC950592564907C00558149 /* LaunchScreen.storyboard */; };
 		CFC950642564927100558149 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950632564927100558149 /* Keys.swift */; };
@@ -28,10 +29,11 @@
 		CF75279F2582F15E0048665E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CF7527A22582F20F0048665E /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		CF7527A52582F26A0048665E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF7527A92582FD450048665E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		CFC9504B2564907600558149 /* spotify-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC9504E2564907700558149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFC950502564907700558149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CFC950522564907700558149 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CFC950572564907C00558149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFC9505A2564907C00558149 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFC9505C2564907C00558149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		CF53A60A256B46D30031175F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CFC950522564907700558149 /* ViewController.swift */,
+				CF7527A92582FD450048665E /* LoginController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,11 +97,27 @@
 		CF53A60C256B46F00031175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CFC950632564927100558149 /* Keys.swift */,
+				CF7527AC2582FF0E0048665E /* Constants */,
 				CF7527A22582F20F0048665E /* SpotifyAuth.swift */,
 				CF7527A52582F26A0048665E /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CF7527AC2582FF0E0048665E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CFC950632564927100558149 /* Keys.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CF7527AD2582FF200048665E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CFC950422564907600558149 = {
@@ -134,6 +152,7 @@
 				CFC950572564907C00558149 /* Assets.xcassets */,
 				CFC950592564907C00558149 /* LaunchScreen.storyboard */,
 				CFC9505C2564907C00558149 /* Info.plist */,
+				CF7527AD2582FF200048665E /* Extensions */,
 			);
 			path = "spotify-clone";
 			sourceTree = "<group>";
@@ -252,12 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */,
-				CFC950532564907700558149 /* ViewController.swift in Sources */,
 				CFC950642564927100558149 /* Keys.swift in Sources */,
 				CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */,
 				CFC9504F2564907700558149 /* AppDelegate.swift in Sources */,
 				CFC950512564907700558149 /* SceneDelegate.swift in Sources */,
+				CF7527AF2582FF3A0048665E /* UIColor+AppColors.swift in Sources */,
 				CF7527A62582F26A0048665E /* User.swift in Sources */,
+				CF7527AA2582FD450048665E /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
