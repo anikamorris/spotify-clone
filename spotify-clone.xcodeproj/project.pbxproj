@@ -116,19 +116,10 @@
 		CF53A60C256B46F00031175F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CF7527AC2582FF0E0048665E /* Constants */,
 				CF7527A22582F20F0048665E /* SpotifyAuth.swift */,
 				CF7527A52582F26A0048665E /* User.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		CF7527AC2582FF0E0048665E /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				CFC950632564927100558149 /* Keys.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		CF7527AD2582FF200048665E /* Extensions */ = {
@@ -171,6 +162,7 @@
 		CFC9504D2564907700558149 /* spotify-clone */ = {
 			isa = PBXGroup;
 			children = (
+				CFC950632564927100558149 /* Keys.swift */,
 				CF7527B7258317EA0048665E /* Coordinators */,
 				CF7527AD2582FF200048665E /* Extensions */,
 				CF53A60C256B46F00031175F /* Models */,

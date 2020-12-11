@@ -63,7 +63,8 @@ class HomeController: UIViewController {
     }
 }
 
-extension HomeController: UITableViewDelegate {}
+extension HomeController: UITableViewDelegate {
+}
 
 extension HomeController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
