@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF53A619256D989F0031175F /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF53A618256D989F0031175F /* SpotifyiOS.framework */; };
 		CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF75279F2582F15E0048665E /* NetworkManager.swift */; };
 		CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A22582F20F0048665E /* SpotifyAuth.swift */; };
 		CF7527A62582F26A0048665E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A52582F26A0048665E /* User.swift */; };
 		CF7527AA2582FD450048665E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A92582FD450048665E /* LoginController.swift */; };
 		CF7527AF2582FF3A0048665E /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */; };
+		CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527B325830A0A0048665E /* UIViewController+Alert.swift */; };
 		CFC9504F2564907700558149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9504E2564907700558149 /* AppDelegate.swift */; };
 		CFC950512564907700558149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950502564907700558149 /* SceneDelegate.swift */; };
 		CFC950582564907C00558149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC950572564907C00558149 /* Assets.xcassets */; };
@@ -24,13 +24,12 @@
 /* Begin PBXFileReference section */
 		20DEC3C8F7F68BBF4F28C186 /* Pods_spotify_clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spotify_clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA595D5005747FC88789ACA /* Pods-spotify-clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotify-clone.debug.xcconfig"; path = "Target Support Files/Pods-spotify-clone/Pods-spotify-clone.debug.xcconfig"; sourceTree = "<group>"; };
-		CF53A618256D989F0031175F /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
-		CF53A61B256D991A0031175F /* Spotify-Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotify-Clone-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF75279F2582F15E0048665E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CF7527A22582F20F0048665E /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		CF7527A52582F26A0048665E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CF7527A92582FD450048665E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		CF7527B325830A0A0048665E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		CFC9504B2564907600558149 /* spotify-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC9504E2564907700558149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFC950502564907700558149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF53A619256D989F0031175F /* SpotifyiOS.framework in Frameworks */,
 				E933CF009DD6047F90C4DB2E /* Pods_spotify_clone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */,
+				CF7527B325830A0A0048665E /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,8 +140,7 @@
 		CFC9504D2564907700558149 /* spotify-clone */ = {
 			isa = PBXGroup;
 			children = (
-				CF53A61B256D991A0031175F /* Spotify-Clone-Bridging-Header.h */,
-				CF53A618256D989F0031175F /* SpotifyiOS.framework */,
+				CF7527AD2582FF200048665E /* Extensions */,
 				CF53A60C256B46F00031175F /* Models */,
 				CF53A60B256B46E00031175F /* Views */,
 				CF53A60A256B46D30031175F /* Controllers */,
@@ -152,7 +150,6 @@
 				CFC950572564907C00558149 /* Assets.xcassets */,
 				CFC950592564907C00558149 /* LaunchScreen.storyboard */,
 				CFC9505C2564907C00558149 /* Info.plist */,
-				CF7527AD2582FF200048665E /* Extensions */,
 			);
 			path = "spotify-clone";
 			sourceTree = "<group>";
@@ -270,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */,
 				CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */,
 				CFC950642564927100558149 /* Keys.swift in Sources */,
 				CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */,
@@ -431,7 +429,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anikamorris.spotify-clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "./spotify-clone/Spotify-Clone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -457,7 +455,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anikamorris.spotify-clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "./spotify-clone/Spotify-Clone-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

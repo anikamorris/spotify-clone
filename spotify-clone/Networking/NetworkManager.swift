@@ -46,38 +46,16 @@ class NetworkManager {
     static let urlSession = URLSession.shared
     static private let baseURL = "https://accounts.spotify.com/"
     static private var parameters: [String: String] = [:]
-    
-    static let clientId = Constants.clientId
-    static let clientSecretKey = Constants.clientSecret
-    static let redirectURI: String = Constants.redirectUri
-    
-    static let accessTokenKey: String = "accessTokenKey"
-    static let authorizationCodeKey: String = "authorizationCodeKey"
-    static let refreshTokenKey: String = "refreshTokenKey"
-    
     static var totalCount: Int = Int.max
     static var codeVerifier: String = ""
-
-    static let stringScopes: [String] = [
-        "user-read-email", "user-read-private",
-        "user-read-playback-state", "user-modify-playback-state",
-        "user-read-currently-playing", "streaming",
-        "app-remote-control", "playlist-read-collaborative",
-        "playlist-modify-public", "playlist-read-private",
-        "playlist-modify-private", "user-library-modify",
-        "user-library-read", "user-top-read",
-        "user-read-playback-position", "user-read-recently-played",
-        "user-follow-read", "user-follow-modify"
-    ]
-    
-    static var accessToken = defaults.string(forKey: accessTokenKey) {
-        didSet { defaults.set(accessToken, forKey: accessTokenKey) }
+    static var accessToken = defaults.string(forKey: Constants.accessTokenKey) {
+        didSet { defaults.set(accessToken, forKey: Constants.accessTokenKey) }
     }
-    static var authorizationCode = defaults.string(forKey: authorizationCodeKey) {
-        didSet { defaults.set(authorizationCode, forKey: authorizationCodeKey) }
+    static var authorizationCode = defaults.string(forKey: Constants.authorizationCodeKey) {
+        didSet { defaults.set(authorizationCode, forKey: Constants.authorizationCodeKey) }
     }
-    static var refreshToken = defaults.string(forKey: refreshTokenKey) {
-        didSet { defaults.set(refreshToken, forKey: refreshTokenKey) }
+    static var refreshToken = defaults.string(forKey: Constants.refreshTokenKey) {
+        didSet { defaults.set(refreshToken, forKey: Constants.refreshTokenKey) }
     }
     
     //MARK: POST Request
@@ -87,16 +65,16 @@ class NetworkManager {
         let url = URL(string: "\(baseURL)api/token")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let spotifyAuthKey = "Basic \((clientId + ":" + clientSecretKey).data(using: .utf8)!.base64EncodedString())"
+        let spotifyAuthKey = "Basic \((Constants.clientId + ":" + Constants.clientSecret).data(using: .utf8)!.base64EncodedString())"
         request.allHTTPHeaderFields = ["Authorization": spotifyAuthKey,
                                        "Content-Type": "application/x-www-form-urlencoded"]
         var requestBodyComponents = URLComponents()
-        let scopeAsString = stringScopes.joined(separator: " ") //scope array to string separated by whitespace
+        let scopeAsString = Constants.stringScopes.joined(separator: " ") //scope array to string separated by whitespace
         requestBodyComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: clientId),
+            URLQueryItem(name: "client_id", value: Constants.clientId),
             URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
-            URLQueryItem(name: "redirect_uri", value: redirectURI),
+            URLQueryItem(name: "redirect_uri", value: Constants.redirectUri),
             URLQueryItem(name: "code_verifier", value: codeVerifier),
             URLQueryItem(name: "scope", value: scopeAsString),
         ]
@@ -121,6 +99,21 @@ class NetworkManager {
             }
         }
         task.resume()
+    }
+    
+    static func fetchUser(accessToken: String, completion: @escaping (Result<User, Error>) -> Void) {
+        Spartan.authorizationToken = accessToken
+        _ = Spartan.getMe(success: { (spartanUser) in
+            print(spartanUser)
+            let user = User(user: spartanUser)
+            completion(.success(user))
+        }, failure: { (error) in
+            if error.errorType == .unauthorized {
+                print("Refresh token!")
+                return
+            }
+            completion(.failure(error))
+        })
     }
 }
 
