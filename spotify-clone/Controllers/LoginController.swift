@@ -11,6 +11,7 @@ import AuthenticationServices
 class LoginController: UIViewController, ASWebAuthenticationPresentationContextProviding {
     
     //MARK: Properties
+    var coordinator: AppCoordinator!
     
     //MARK: Views
     let logoView: UIView = {
@@ -116,17 +117,18 @@ class LoginController: UIViewController, ASWebAuthenticationPresentationContextP
             NetworkManager.fetchAccessToken { (result) in
                 switch result {
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.presentAlert(title: "Error Logging In", message: "\(error.localizedDescription)")
+                    DispatchQueue.main.async { [weak self] in
+                        self?.presentAlert(title: "Error Logging In", message: "\(error.localizedDescription)")
                     }
                 case .success(let spotifyAuth):
                     print("access token \(spotifyAuth.accessToken)")
-                    NetworkManager.fetchUser(accessToken: spotifyAuth.accessToken) { (result) in
+                    NetworkManager.fetchUser(accessToken: spotifyAuth.accessToken) { [weak self] (result) in
                         switch result{
                         case .failure(let error):
-                            self.presentAlert(title: "Error Logging In", message: "\(error.localizedDescription)")
+                            self?.presentAlert(title: "Error Logging In", message: "\(error.localizedDescription)")
                         case .success(let user):
                             print(user)
+                            self?.coordinator.goToHomeController()
                         }
                     }
                 }

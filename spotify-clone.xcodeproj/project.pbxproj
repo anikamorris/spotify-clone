@@ -13,6 +13,11 @@
 		CF7527AA2582FD450048665E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A92582FD450048665E /* LoginController.swift */; };
 		CF7527AF2582FF3A0048665E /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */; };
 		CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527B325830A0A0048665E /* UIViewController+Alert.swift */; };
+		CF7527B9258317F80048665E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527B8258317F80048665E /* Coordinator.swift */; };
+		CF7527BC2583181C0048665E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527BB2583181C0048665E /* AppCoordinator.swift */; };
+		CF7527BF25831A2D0048665E /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527BE25831A2D0048665E /* TabBarCoordinator.swift */; };
+		CF7527C225831AD40048665E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527C125831AD40048665E /* TabBarController.swift */; };
+		CF7527C525831B1C0048665E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527C425831B1C0048665E /* HomeController.swift */; };
 		CFC9504F2564907700558149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9504E2564907700558149 /* AppDelegate.swift */; };
 		CFC950512564907700558149 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC950502564907700558149 /* SceneDelegate.swift */; };
 		CFC950582564907C00558149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC950572564907C00558149 /* Assets.xcassets */; };
@@ -30,6 +35,11 @@
 		CF7527A92582FD450048665E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		CF7527AE2582FF3A0048665E /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		CF7527B325830A0A0048665E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		CF7527B8258317F80048665E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CF7527BB2583181C0048665E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		CF7527BE25831A2D0048665E /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		CF7527C125831AD40048665E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CF7527C425831B1C0048665E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		CFC9504B2564907600558149 /* spotify-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spotify-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC9504E2564907700558149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFC950502564907700558149 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				CF7527A92582FD450048665E /* LoginController.swift */,
+				CF7527C125831AD40048665E /* TabBarController.swift */,
+				CF7527C425831B1C0048665E /* HomeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +131,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CF7527B7258317EA0048665E /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				CF7527B8258317F80048665E /* Coordinator.swift */,
+				CF7527BB2583181C0048665E /* AppCoordinator.swift */,
+				CF7527BE25831A2D0048665E /* TabBarCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		CFC950422564907600558149 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +162,7 @@
 		CFC9504D2564907700558149 /* spotify-clone */ = {
 			isa = PBXGroup;
 			children = (
+				CF7527B7258317EA0048665E /* Coordinators */,
 				CF7527AD2582FF200048665E /* Extensions */,
 				CF53A60C256B46F00031175F /* Models */,
 				CF53A60B256B46E00031175F /* Views */,
@@ -267,8 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7527BC2583181C0048665E /* AppCoordinator.swift in Sources */,
+				CF7527C225831AD40048665E /* TabBarController.swift in Sources */,
+				CF7527C525831B1C0048665E /* HomeController.swift in Sources */,
 				CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */,
+				CF7527BF25831A2D0048665E /* TabBarCoordinator.swift in Sources */,
 				CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */,
+				CF7527B9258317F80048665E /* Coordinator.swift in Sources */,
 				CFC950642564927100558149 /* Keys.swift in Sources */,
 				CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */,
 				CFC9504F2564907700558149 /* AppDelegate.swift in Sources */,
