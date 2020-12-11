@@ -64,6 +64,9 @@ class HomeController: UIViewController {
 }
 
 extension HomeController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 }
 
 extension HomeController: UITableViewDataSource {
@@ -73,7 +76,10 @@ extension HomeController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtistCell.reuseIdentifier) as! ArtistCell
-        cell.nameLabel.text = artists[indexPath.row].name
+        let artist = artists[indexPath.row]
+        let artistImageUrL = artist.images.first?.url
+        cell.nameLabel.text = artist.name
+        cell.downloadImage(from: artistImageUrL)
         return cell
     }
 }
