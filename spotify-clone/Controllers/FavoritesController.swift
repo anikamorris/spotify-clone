@@ -31,6 +31,11 @@ class FavoritesController: UIViewController {
         self.title = "Favorites"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchFavoriteTracks()
+    }
+    
     //MARK: Methods
     func setupViews() {
         view.backgroundColor = .background

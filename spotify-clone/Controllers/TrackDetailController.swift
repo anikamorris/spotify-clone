@@ -54,7 +54,7 @@ class TrackDetailController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         button.setBackgroundImage(UIImage(systemName: "play"), for: .normal)
-        button.tintColor = .royalIndigo
+        button.tintColor = .ultraRed
         return button
     }()
     let favoriteButton: UIButton = {
@@ -62,12 +62,13 @@ class TrackDetailController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         button.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .royalIndigo
+        button.tintColor = .ultraRed
         return button
     }()
-    let slider: UISlider = {
+    let volumeSlider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.addTarget(self, action: #selector(sliderValueDidChange), for: .valueChanged)
         return slider
     }()
     
@@ -105,12 +106,12 @@ class TrackDetailController: UIViewController {
             albumLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             albumLabel.topAnchor.constraint(equalTo: songLabel.bottomAnchor)
         ])
-        view.addSubview(slider)
+        view.addSubview(volumeSlider)
         NSLayoutConstraint.activate([
-            slider.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
-            slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0),
-            slider.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30.0),
-            slider.heightAnchor.constraint(equalToConstant: 30.0)
+            volumeSlider.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6),
+            volumeSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0),
+            volumeSlider.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30.0),
+            volumeSlider.heightAnchor.constraint(equalToConstant: 30.0)
         ])
         view.addSubview(buttonStack)
         buttonStack.addArrangedSubview(playButton)
@@ -165,9 +166,11 @@ class TrackDetailController: UIViewController {
     func setFavoriteButtonState() {
         let trackId = track.id as! String
         if let favorites = UserDefaults.standard.value(forKey: "favorites") as? [String] {
-            for i in 0...favorites.count-1 {
-                if favorites[i] == trackId {
-                    favoriteButtonState = .selected
+            if favorites.count > 0 {
+                for i in 0...favorites.count-1 {
+                    if favorites[i] == trackId {
+                        favoriteButtonState = .selected
+                    }
                 }
             }
         }
@@ -175,6 +178,10 @@ class TrackDetailController: UIViewController {
     }
     
     //MARK: Helpers
+    @objc func sliderValueDidChange() {
+        player?.volume = volumeSlider.value
+    }
+    
     @objc func playButtonTapped() {
         playButtonState.toggle(for: playButton)
         if playButtonState == .selected {
@@ -194,9 +201,11 @@ class TrackDetailController: UIViewController {
             if favoriteButtonState == .selected {
                 newFavorites.append(trackId)
             } else {
-                for i in 0...newFavorites.count-1 {
-                    if newFavorites[i] == trackId {
-                        newFavorites.remove(at: i)
+                if newFavorites.count > 0 {
+                    for i in 0...newFavorites.count-1 {
+                        if newFavorites[i] == trackId {
+                            newFavorites.remove(at: i)
+                        }
                     }
                 }
             }
@@ -207,3 +216,4 @@ class TrackDetailController: UIViewController {
         }
     }
 }
+
