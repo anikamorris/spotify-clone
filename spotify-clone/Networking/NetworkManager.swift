@@ -131,5 +131,13 @@ class NetworkManager {
             completion(.failure(error))
         })
     }
+    
+    static func fetchTracksById(ids: [String], completion: @escaping (Result<[Track], Error>) -> Void ){
+        _ = Spartan.getTracks(ids: ids, market: .us, success: { (tracks) in
+            completion(.success(tracks))
+        }, failure: { (error) in
+            completion(.failure(error))
+        })
+    }
 }
 

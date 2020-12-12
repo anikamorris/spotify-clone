@@ -58,6 +58,7 @@ class TrackDetailController: UIViewController {
     let favoriteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         button.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .royalIndigo
         return button
@@ -162,6 +163,18 @@ class TrackDetailController: UIViewController {
     @objc func playButtonTapped() {
         DispatchQueue.main.async { [weak self] in
             self?.player?.play()
+        }
+    }
+    
+    @objc func favoriteButtonTapped() {
+        let trackId = track.id as! String
+        if let favorites = UserDefaults.standard.value(forKey: "favorites") as? [String] {
+            var newFavorites = favorites
+            newFavorites.append(trackId)
+            UserDefaults.standard.setValue(newFavorites, forKey: "favorites")
+        } else {
+            let favorites: [String] = [trackId]
+            UserDefaults.standard.setValue(favorites, forKey: "favorites")
         }
     }
 }
