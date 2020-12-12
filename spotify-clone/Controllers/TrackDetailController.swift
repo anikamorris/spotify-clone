@@ -170,6 +170,7 @@ class TrackDetailController: UIViewController {
                 for i in 0...favorites.count-1 {
                     if favorites[i] == trackId {
                         favoriteButtonState = .selected
+                        favoriteButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
                     }
                 }
             }

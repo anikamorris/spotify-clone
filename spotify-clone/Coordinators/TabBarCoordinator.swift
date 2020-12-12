@@ -80,3 +80,14 @@ extension TabBarCoordinator {
         homeNavigationController.pushViewController(vc, animated: true)
     }
 }
+
+//MARK: Favorites Flow
+extension TabBarCoordinator {
+    func goToTrackDetailFromFavorites(track: Track, trackImage: UIImage?) {
+        let vc = TrackDetailController()
+        vc.coordinator = self
+        vc.track = track
+        vc.trackImage = trackImage
+        favoritesNavigationController.pushViewController(vc, animated: true)
+    }
+}

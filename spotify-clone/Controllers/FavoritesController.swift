@@ -78,10 +78,10 @@ extension FavoritesController: UITableViewDelegate {
         let track = tracks[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath) as! TrackCell
         guard let image = cell.trackImageView.image else {
-            coordinator.goToTrackDetail(track: track, trackImage: nil)
+            coordinator.goToTrackDetailFromFavorites(track: track, trackImage: nil)
             return
         }
-        coordinator.goToTrackDetail(track: track, trackImage: image)
+        coordinator.goToTrackDetailFromFavorites(track: track, trackImage: image)
     }
 }
 
