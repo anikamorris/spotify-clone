@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CF25EAEA25840A3E0008AD8C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF25EAE925840A3E0008AD8C /* TrackCell.swift */; };
 		CF25EAED258410EB0008AD8C /* TrackDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF25EAEC258410EB0008AD8C /* TrackDetailController.swift */; };
+		CF25EAF025844A010008AD8C /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF25EAEF25844A010008AD8C /* ButtonState.swift */; };
 		CF7527A02582F15E0048665E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF75279F2582F15E0048665E /* NetworkManager.swift */; };
 		CF7527A32582F20F0048665E /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A22582F20F0048665E /* SpotifyAuth.swift */; };
 		CF7527A62582F26A0048665E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7527A52582F26A0048665E /* User.swift */; };
@@ -36,6 +37,7 @@
 		3EA595D5005747FC88789ACA /* Pods-spotify-clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spotify-clone.debug.xcconfig"; path = "Target Support Files/Pods-spotify-clone/Pods-spotify-clone.debug.xcconfig"; sourceTree = "<group>"; };
 		CF25EAE925840A3E0008AD8C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		CF25EAEC258410EB0008AD8C /* TrackDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailController.swift; sourceTree = "<group>"; };
+		CF25EAEF25844A010008AD8C /* ButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
 		CF75279F2582F15E0048665E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CF7527A22582F20F0048665E /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		CF7527A52582F26A0048665E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				CF7527A22582F20F0048665E /* SpotifyAuth.swift */,
 				CF7527A52582F26A0048665E /* User.swift */,
+				CF25EAEF25844A010008AD8C /* ButtonState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7527BC2583181C0048665E /* AppCoordinator.swift in Sources */,
+				CF25EAF025844A010008AD8C /* ButtonState.swift in Sources */,
 				CF7527C225831AD40048665E /* TabBarController.swift in Sources */,
 				CF7527C525831B1C0048665E /* HomeController.swift in Sources */,
 				CF7527B425830A0B0048665E /* UIViewController+Alert.swift in Sources */,

@@ -17,6 +17,8 @@ class TrackDetailController: UIViewController {
     var track: Track!
     var trackImage: UIImage?
     var player: AVPlayer?
+    var playButtonState = PlayButtonState.unselected
+    var favoriteButtonState = FavoriteButtonState.unselected
     
     //MARK: Views
     let trackImageView: UIImageView = {
@@ -73,13 +75,14 @@ class TrackDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchSongPreview()
+        setFavoriteButtonState()
         setupViews()
     }
     
     //MARK: Methods
     private func setupViews() {
         setImage()
-        configureLabelText()
+        setLabelText()
         view.backgroundColor = .background
         view.addSubview(trackImageView)
         NSLayoutConstraint.activate([
@@ -120,7 +123,7 @@ class TrackDetailController: UIViewController {
         ])
     }
     
-    func configureLabelText() {
+    func setLabelText() {
         let trackName = track.name
         let albumName = track.album.name
         songLabel.text = trackName
@@ -159,18 +162,44 @@ class TrackDetailController: UIViewController {
         task.resume()
     }
     
+    func setFavoriteButtonState() {
+        let trackId = track.id as! String
+        if let favorites = UserDefaults.standard.value(forKey: "favorites") as? [String] {
+            for i in 0...favorites.count-1 {
+                if favorites[i] == trackId {
+                    favoriteButtonState = .selected
+                }
+            }
+        }
+        favoriteButtonState = .unselected
+    }
+    
     //MARK: Helpers
     @objc func playButtonTapped() {
-        DispatchQueue.main.async { [weak self] in
-            self?.player?.play()
+        playButtonState.toggle(for: playButton)
+        if playButtonState == .selected {
+            DispatchQueue.main.async { [weak self] in
+                self?.player?.play()
+            }
+        } else {
+            player?.pause()
         }
     }
     
     @objc func favoriteButtonTapped() {
+        favoriteButtonState.toggle(for: favoriteButton)
         let trackId = track.id as! String
         if let favorites = UserDefaults.standard.value(forKey: "favorites") as? [String] {
             var newFavorites = favorites
-            newFavorites.append(trackId)
+            if favoriteButtonState == .selected {
+                newFavorites.append(trackId)
+            } else {
+                for i in 0...newFavorites.count-1 {
+                    if newFavorites[i] == trackId {
+                        newFavorites.remove(at: i)
+                    }
+                }
+            }
             UserDefaults.standard.setValue(newFavorites, forKey: "favorites")
         } else {
             let favorites: [String] = [trackId]
